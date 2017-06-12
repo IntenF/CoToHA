@@ -39,6 +39,7 @@ CoToHAのビジネスモデル
     そこで、IoTデバイスの値段を値引きして初期コストを下げる。この下げたコストは後のユーザ情報の収集や技（ソフトウェア）の管理費として回収する。
     これによって購買者の購買意欲を底上げして直近の購買メリットを呼ぶ。ゆえにこれは一時的な処理として行い将来的には中止するサービスである。
 '''
+import MeCab
 
 class CoToHA():
     def __init__(self):
@@ -46,11 +47,33 @@ class CoToHA():
     
     def run(self):
         speak = input("おしゃべりしてくださいね！")
-        if speak == "おしまい":
+        if speak == "おしまい" or speak == "exit":
             self.alive = 0
+            print("バイバイー！(@^^)/~~~")
             return
-        print(speak)
-    
+        import MeCab
+        mecab = MeCab.Tagger("-Owakati")
+        parsed = mecab.parse(speak)
+        object__list = ["LED"]
+        for s in parsed:
+            print(s)
+
+class CoToHA_object():
+    '''
+    CoToHA_objectとは
+    CoToHAにおける核となるクラスである。CoToHAにおけるすべてのクラスはこのクラスを継承する。
+    CoToHA_ID
+    parent
+    children
+    '''
+    def __init__(self, parent, CoToHA_ID=None):
+        if parent == None:
+            raise 
+        self.parent = parent
+
+    def command(self):
+
+
     
 if __name__ == '__main__':
     mycotoha = CoToHA()
