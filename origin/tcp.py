@@ -36,7 +36,7 @@ if __name__ == '__main__':
     else:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # オブジェクトの作成をします
 
-        client.connect(('localhost', 5108))  # これでサーバーに接続します
+        client.connect(('10.24.129.140', 5108))  # これでサーバーに接続します
 
         client.send(b'rom nadechin')  # 適当なデータを送信します（届く側にわかるように）
 
