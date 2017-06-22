@@ -72,8 +72,7 @@ class CoToHA_object():
         self.parent = parent
 
     def command(self):
-
-
+        pass
     
 if __name__ == '__main__':
     mycotoha = CoToHA()
